@@ -111,7 +111,8 @@ module.exports = {
             },
             storeTiming:Joi.object(),
             radius:Joi.object(),
-            logisticsBppId:Joi.string().allow('')
+            logisticsBppId:Joi.string().allow(''),
+            logisticsDeliveryType:Joi.string().allow('')
         });
     },
     get:()=>{

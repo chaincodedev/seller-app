@@ -8,16 +8,18 @@ const ondcController = new OndcController();
 router.post('/client/search',
     ondcController.productSearch);
 
-// new changes
+//new changes
 router.post('/client/select',
     ondcController.orderSelect);
 
+//TODO: uncomment if you dont want LSP integration
 // router.post('/client/select',
-//     ondcController.orderSelectWithoutlogistic);
+//      ondcController.orderSelectWithoutlogistic);
 
 router.post('/client/Init',
     ondcController.orderInit);
 
+//TODO: uncomment if you dont want LSP integration
 // router.post('/client/Init',
 //     ondcController.orderInitWithoutlogistic);
 
