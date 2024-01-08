@@ -63,7 +63,7 @@ class OndcService {
                     "country": "IND",
                     "city": "std:080",
                     "action": "search",
-                    "core_version": "1.1.0",
+                    "core_version": "1.2.0",
                     "bap_id": config.get("sellerConfig").BPP_ID,
                     "bap_uri": config.get("sellerConfig").BPP_URI,
                     "transaction_id": uuidv4(),
@@ -241,7 +241,7 @@ class OndcService {
 
     async buildSearchRequest(searchRequest, searchMessageId) {
 
-        try {            
+        try {
             // let org = await productService.getOrgForOndc(payload.message.order.provider.id);
             let searchResponse = await productService.search(searchRequest, searchMessageId)
             if (searchResponse.length > 0) {
@@ -1823,20 +1823,20 @@ class OndcService {
             let category = domainNameSpace.find((cat) => {
                 return cat.name === statusRequest.productCategory
             })
-            let context = { 
+            let context = {
                 "domain": category.domain,
-                "country": "IND", 
-                "city": "std:080", 
+                "country": "IND",
+                "city": "std:080",
                 "action": "on_search",
-                "core_version": "1.2.0", 
-                "bap_id": "ref-app-buyer-dev-internal.ondc.org", 
-                "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1", 
-                "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org", 
-                "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf", 
-                "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764", 
-                "timestamp": new Date(), 
-                "bpp_id": "ref-app-seller-dev-internal.ondc.org", 
-                "ttl": "PT30S" 
+                "core_version": "1.2.0",
+                "bap_id": "ref-app-buyer-dev-internal.ondc.org",
+                "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1",
+                "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org",
+                "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf",
+                "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",
+                "timestamp": new Date(),
+                "bpp_id": "ref-app-seller-dev-internal.ondc.org",
+                "ttl": "PT30S"
             }
             let data = {
                 products: [{...org.providerDetail,items:[statusRequest]}],
@@ -1844,7 +1844,7 @@ class OndcService {
             }
             let productSchema = await getProductUpdate({ data, context });
             await this.postItemUpdateRequest(productSchema);
-        
+
         } catch (e) {
             console.log(e)
             return e
@@ -2194,14 +2194,14 @@ class OndcService {
                 {
                     "domain":category.domain,
                     "action":"on_search",
-                    "country": "IND", 
-                    "city": "std:080", 
+                    "country": "IND",
+                    "city": "std:080",
                     "core_version": "1.2.0",
-                    "bap_id": "ref-app-buyer-dev-internal.ondc.org", 
-                    "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1", 
-                    "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org", 
-                    "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf", 
-                    "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",     
+                    "bap_id": "ref-app-buyer-dev-internal.ondc.org",
+                    "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1",
+                    "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org",
+                    "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf",
+                    "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",
                     "timestamp":new Date(),
                     "ttl":"PT30S"
                 },
@@ -2227,9 +2227,9 @@ class OndcService {
             }
             this.postItemUpdateRequest(payload);
         }
-        return{success :true};    
+        return{success :true};
         }
-    
+
     async notifyOrgUpdate(data){
         let category = domainNameSpace.find((cat) => {
             return cat.name === data.category
@@ -2239,14 +2239,14 @@ class OndcService {
             {
               "domain":category.domain,
               "action":"on_search",
-              "country": "IND", 
-              "city": "std:080", 
+              "country": "IND",
+              "city": "std:080",
               "core_version": "1.2.0",
-              "bap_id": "ref-app-buyer-dev-internal.ondc.org", 
-              "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1", 
-              "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org", 
-              "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf", 
-              "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764", 
+              "bap_id": "ref-app-buyer-dev-internal.ondc.org",
+              "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1",
+              "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org",
+              "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf",
+              "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",
               "timestamp":new Date(),
               "ttl":"PT30S"
             },

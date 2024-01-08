@@ -83,7 +83,8 @@ module.exports = {
             },
             storeTiming:Joi.object(),
             radius:Joi.object(),
-            logisticsBppId:Joi.string().allow('')
+            logisticsBppId:Joi.string().allow(''),
+            logisticsDeliveryType:Joi.string().allow('')
         });
     },
     updateStoreDetails:()=>{
@@ -150,7 +151,7 @@ module.exports = {
             }
         });
     },
-    
+
     getStoreDetails:()=>{
         return Joi.object({
             organizationId: Joi.string().guid({
@@ -158,7 +159,7 @@ module.exports = {
             }),
         });
     },
-    
+
     list:()=>{
         return Joi.object({
             name:Joi.string().empty(''),

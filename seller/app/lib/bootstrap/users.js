@@ -12,7 +12,7 @@ const users = (env === 'development') ? [
         'nationality': 'Indian',
         'dateOfBirth': '1990-01-08',
         'mobile': '+918796105046'
-        
+
     }
 ] : [
     {
@@ -25,7 +25,7 @@ const users = (env === 'development') ? [
         'nationality': 'Indian',
         'dateOfBirth': '1990-01-08',
         'mobile': '+918796105046'
-      
+
     }
 ];
 

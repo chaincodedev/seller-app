@@ -8,18 +8,18 @@ const ondcController = new OndcController();
 router.post('/client/search',
     ondcController.productSearch);
 
-//new changes
-// router.post('/client/select',
-//     ondcController.orderSelect);
-
+// new changes
 router.post('/client/select',
-    ondcController.orderSelectWithoutlogistic);
+    ondcController.orderSelect);
 
-// router.post('/client/Init',
-//     ondcController.orderInit);
+// router.post('/client/select',
+//     ondcController.orderSelectWithoutlogistic);
 
 router.post('/client/Init',
-    ondcController.orderInitWithoutlogistic);
+    ondcController.orderInit);
+
+// router.post('/client/Init',
+//     ondcController.orderInitWithoutlogistic);
 
 router.post('/client/confirm',
     ondcController.orderConfirm);

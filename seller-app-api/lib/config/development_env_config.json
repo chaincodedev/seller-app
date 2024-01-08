@@ -55,13 +55,13 @@
     "supportEmail": "dev@wemotiveforge.com",
     "webClientUri": "http://192.168.0.11:3000"
   },
-  "cors":  {
-    "whitelistUrls":  ["http://localhost:3000", "http://127.0.0.1:3000"]
-  },
   "cors": {
     "whitelistUrls": [
       "http://localhost:3000",
-      "https://localhost:3000"
+      "https://localhost:3000",
+      "https://dev.genai.ondcsutr.com",
+      "http://dev.genai.ondcsutr.com",
+      "http://34.131.94.116:3000"
     ]
   },
   "directory": {
